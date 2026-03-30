@@ -1,29 +1,33 @@
-function addTask() {
-    let input = document.getElementById("taskInput");
-    let task = input.value;
-
-    if (task === "") return;
-
-    let li = document.createElement("li");
-    li.innerHTML = task + " <button onclick='deleteTask(this)'>X</button>";
-
-    document.getElementById("taskList").appendChild(li);
-
-    saveData();
-    input.value = "";
+body {
+    font-family: Arial;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
-function deleteTask(btn) {
-    btn.parentElement.remove();
-    saveData();
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
 }
 
-function saveData() {
-    localStorage.setItem("tasks", document.getElementById("taskList").innerHTML);
+input {
+    padding: 10px;
+    width: 70%;
 }
 
-function showTasks() {
-    document.getElementById("taskList").innerHTML = localStorage.getItem("tasks");
+button {
+    padding: 10px;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
-showTasks();
+li {
+    margin: 10px 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
